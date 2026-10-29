@@ -1,0 +1,31 @@
+EXPO TÉCNICA REGIONAL 2026 — CORVEC PACÍFICO CENTRAL
+PROYECTO COMPLETO PARA OTRA COMPUTADORA
+
+1. Descomprime TODO el ZIP en una carpeta.
+2. Abre sitio/index.html en Chrome, Edge o Firefox. Conserva las carpetas y los nombres de los archivos.
+3. Si tu navegador bloquea recursos locales, instala Python 3 desde python.org y ejecuta, desde la carpeta sitio:
+   python -m http.server 8000
+   Luego abre http://localhost:8000. Para detenerlo, pulsa Ctrl+C en la terminal.
+
+EDICIÓN DEL VISOR
+sitio/index.html: interfaz y visor WebGL de la panorámica.
+sitio/stands.js: nombres, fotografías, galerías y coordenadas de los puntos interactivos.
+sitio/stands.css: apariencia y tamaño de los botones y de las galerías.
+sitio/stands/: fotografías de los estands.
+sitio/panorama-v4.webp: panorámica actual con la corrección de la figura duplicada. Mantener este archivo.
+Los vectores direction de stands.js ubican los puntos en la esfera; no son coordenadas de pantalla.
+Para añadir un estand, copia una entrada de stands y agrega su fotografía a sitio/stands/.
+photo admite una fotografía; photos admite una lista para la galería.
+
+ORIGINALES Y PROCESAMIENTO
+originales/: las 26 fotografías DJI sin cambios.
+procesamiento/: scripts y alineación de cámaras para referencia y reconstrucción.
+Los scripts de procesamiento históricos usan rutas y dependencias de la computadora original; deben adaptarse antes de ejecutarlos. Requieren NumPy, OpenCV, Pillow y SciPy. El visor NO necesita estas bibliotecas ni compilación.
+Se incluye la edición local generada para retirar la figura duplicada y su script de aplicación como referencia. Algunas rutas de herramientas son específicas del equipo original.
+
+PUBLICACIÓN
+El enlace actual es https://expo-esparza-panorama-360.jeynermmp.chatgpt.site
+Editar este ZIP no modifica automáticamente el sitio público. Para otro alojamiento estático, publica el contenido de sitio/.
+configuracion/hosting.json conserva la identificación del sitio de Sites. Para actualizar ese mismo sitio necesitas iniciar sesión con la cuenta propietaria y volver a publicar. No se incluyen credenciales ni historial Git.
+
+Estado: incluye Nutricanino, SKIA, Crecer, TerraBloque (posición corregida), Kefilac, APA-IA, Economía azul Porteña, Lo de Mile, Eco Filtro de Coco, Campo Digital y Ferry Go.
