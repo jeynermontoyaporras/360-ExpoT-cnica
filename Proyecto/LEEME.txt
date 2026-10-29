@@ -28,4 +28,7 @@ El enlace actual es https://expo-esparza-panorama-360.jeynermmp.chatgpt.site
 Editar este ZIP no modifica automáticamente el sitio público. Para otro alojamiento estático, publica el contenido de sitio/.
 configuracion/hosting.json conserva la identificación del sitio de Sites. Para actualizar ese mismo sitio necesitas iniciar sesión con la cuenta propietaria y volver a publicar. No se incluyen credenciales ni historial Git.
 
-Estado: incluye Nutricanino, SKIA, Crecer, TerraBloque (posición corregida), Kefilac, APA-IA, Economía azul Porteña, Lo de Mile, Eco Filtro de Coco, Campo Digital y Ferry Go.
+Estado: 17 estands y 20 fotografías vinculadas. Incluye Nutri Planta, Gotitas, Eco Poste CR, ECOFLEX C.R, Intexconexión, Bastón Eléctrico, Ferry Go, Campo Digital (Agro Smart), Eco Filtro de Coco, Lo de Mile, Economía azul Porteña, APA-IA, Kefilac, TerraBloque, Crecer, Experiencias Turísticas - SKIA y Nutricanino.
+
+Repositorio de trabajo: https://github.com/jeynermontoyaporras/360-ExpoT-cnica
+La publicación en Sites y el guardado en GitHub se realizan por separado.
