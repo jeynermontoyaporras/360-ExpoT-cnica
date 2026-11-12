@@ -26,7 +26,9 @@ export default {
       if (origin && origin !== new URL(request.url).origin) {
         return new Response(null, { status: 403 });
       }
-      if (request.method === 'GET') {
+      const excluded = (request.headers.get('Cookie') ?? '').split(';')
+        .some(cookie => cookie.trim() === 'expo-exclude-visits=yes');
+      if (request.method === 'GET' || excluded) {
         const total = await env.DB.prepare('SELECT count FROM visits WHERE id = 1').first();
         return Response.json(total, { headers: { 'Cache-Control': 'no-store' } });
       }
@@ -44,7 +46,12 @@ export default {
       return Response.json({ count }, { headers: { 'Cache-Control': 'no-store' } });
     }
     if (pathname === '/' || pathname === '/index.html') {
-      return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+      const headers = new Headers({ 'Content-Type': 'text/html; charset=utf-8' });
+      if (new URL(request.url).searchParams.get('contar') === 'no') {
+        headers.set('Set-Cookie', 'expo-exclude-visits=yes; Path=/; Max-Age=31536000; Secure; HttpOnly; SameSite=Lax');
+        headers.set('Cache-Control', 'no-store');
+      }
+      return new Response(html, { headers });
     }
     return env.ASSETS ? env.ASSETS.fetch(request) : new Response(null, { status: 404 });
   }

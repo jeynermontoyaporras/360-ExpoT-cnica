@@ -3,12 +3,13 @@ async function showVisits() {
   try {
     const url = new URL(location.href);
     const excludeThisBrowser = url.searchParams.get('contar') === 'no';
-    if (excludeThisBrowser) {
-      localStorage.setItem('expo-exclude-visits', 'yes');
-      url.searchParams.delete('contar');
-      history.replaceState(null, '', url);
+    let excluded = excludeThisBrowser;
+    try {
+      if (excludeThisBrowser) localStorage.setItem('expo-exclude-visits', 'yes');
+      excluded ||= localStorage.getItem('expo-exclude-visits') === 'yes';
+    } catch {
+      // The activation link and server cookie also work without local storage.
     }
-    const excluded = localStorage.getItem('expo-exclude-visits') === 'yes';
     const response = await fetch('/api/visits', { method: excluded ? 'GET' : 'POST' });
     if (!response.ok) return;
     const { count } = await response.json();
