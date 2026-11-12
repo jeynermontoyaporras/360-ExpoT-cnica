@@ -10,7 +10,8 @@ async function showVisits() {
     } catch {
       // The activation link and server cookie also work without local storage.
     }
-    const response = await fetch('/api/visits', { method: excluded ? 'GET' : 'POST' });
+    const endpoint = excludeThisBrowser ? '/api/visits?contar=no' : '/api/visits';
+    const response = await fetch(endpoint, { method: excluded ? 'GET' : 'POST' });
     if (!response.ok) return;
     const { count } = await response.json();
     if (!Number.isSafeInteger(count) || count < 0) return;
